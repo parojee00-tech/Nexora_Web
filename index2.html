@@ -1,0 +1,2890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nexora — Digital Product Agency</title>
+
+<meta name="description"
+content="Nexora builds modern digital products, websites, brands and growth experiences.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+:root{
+    --bg:#050505;
+    --bg2:#0a0a0a;
+    --card:#101010;
+    --card2:#151515;
+    --text:#ffffff;
+    --muted:#929292;
+    --border:rgba(255,255,255,.10);
+
+    --accent:#7c3aed;
+    --accent2:#06b6d4;
+
+    --success:#22c55e;
+
+    --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+body.light{
+    --bg:#f6f7fb;
+    --bg2:#ffffff;
+    --card:#ffffff;
+    --card2:#f0f1f5;
+    --text:#111111;
+    --muted:#666666;
+    --border:rgba(0,0,0,.10);
+    --shadow:0 20px 50px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+    transition:.3s;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:var(--bg);
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--accent),var(--accent2));
+    border-radius:20px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+
+    border-bottom:1px solid transparent;
+    transition:.3s;
+}
+
+header.scrolled{
+    background:rgba(5,5,5,.82);
+    backdrop-filter:blur(18px);
+    border-color:var(--border);
+}
+
+body.light header.scrolled{
+    background:rgba(255,255,255,.85);
+}
+
+.navbar{
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo-icon{
+    width:36px;
+    height:36px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:11px;
+
+    color:white;
+
+    background:
+    linear-gradient(135deg,var(--accent),var(--accent2));
+
+    box-shadow:0 0 25px rgba(124,58,237,.35);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    list-style:none;
+}
+
+.nav-links a{
+    color:var(--muted);
+    font-size:14px;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:var(--text);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:transparent;
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    display:grid;
+    place-items:center;
+
+    transition:.25s;
+}
+
+.icon-btn:hover{
+    transform:translateY(-2px);
+    border-color:var(--accent);
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:13px 22px;
+
+    border-radius:12px;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    color:white;
+
+    background:
+    linear-gradient(135deg,var(--accent),var(--accent2));
+
+    box-shadow:
+    0 10px 30px rgba(124,58,237,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:
+    0 15px 35px rgba(124,58,237,.38);
+}
+
+.btn-outline{
+    color:var(--text);
+    border:1px solid var(--border);
+    background:transparent;
+}
+
+.btn-outline:hover{
+    background:var(--card);
+    transform:translateY(-3px);
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+    display:none;
+
+    padding:20px;
+
+    background:var(--bg2);
+    border-top:1px solid var(--border);
+}
+
+.mobile-menu a{
+    display:block;
+    padding:12px 0;
+    color:var(--muted);
+}
+
+.mobile-menu.open{
+    display:block;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(124,58,237,.25),
+        transparent 65%
+    );
+
+    pointer-events:none;
+}
+
+.hero-content{
+    max-width:850px;
+
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 14px;
+
+    border:1px solid var(--border);
+    border-radius:100px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    background:rgba(255,255,255,.03);
+
+    margin-bottom:25px;
+}
+
+.badge span{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    box-shadow:0 0 15px #22c55e;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+
+    line-height:1.02;
+
+    letter-spacing:-4px;
+
+    font-weight:800;
+}
+
+.gradient-text{
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #a78bfa,
+        #22d3ee
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+
+    margin:25px auto 0;
+
+    color:var(--muted);
+
+    font-size:17px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.hero-stats{
+    margin-top:70px;
+
+    display:flex;
+    justify-content:center;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+}
+
+.stat h3{
+    font-size:28px;
+}
+
+.stat p{
+    margin:3px 0 0;
+    font-size:12px;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+    padding:110px 0;
+}
+
+.section-head{
+    margin-bottom:55px;
+}
+
+.section-label{
+    color:#a78bfa;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-size:clamp(30px,4vw,48px);
+
+    line-height:1.1;
+
+    letter-spacing:-2px;
+
+    max-width:700px;
+}
+
+.section-description{
+    color:var(--muted);
+
+    max-width:600px;
+
+    margin-top:15px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    background:var(--bg2);
+}
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.service-card{
+    padding:32px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:var(--card);
+
+    transition:.3s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.service-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    top:-80px;
+    right:-80px;
+
+    background:var(--accent);
+
+    filter:blur(70px);
+
+    opacity:.18;
+}
+
+.service-card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(167,139,250,.45);
+
+    box-shadow:var(--shadow);
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(124,58,237,.18),
+        rgba(6,182,212,.12)
+    );
+
+    color:#c4b5fd;
+
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-size:18px;
+
+    margin-bottom:10px;
+}
+
+.service-card p{
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.about-image{
+    min-height:450px;
+
+    border-radius:25px;
+
+    border:1px solid var(--border);
+
+    background:
+    radial-gradient(
+        circle at 30% 30%,
+        rgba(124,58,237,.5),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 70% 70%,
+        rgba(6,182,212,.4),
+        transparent 35%
+    ),
+    var(--card);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.about-image::after{
+    content:"NEXORA";
+
+    position:absolute;
+
+    font-size:80px;
+
+    font-weight:800;
+
+    letter-spacing:-5px;
+
+    opacity:.05;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+}
+
+.about-card{
+    position:absolute;
+
+    bottom:25px;
+    left:25px;
+
+    padding:20px;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    background:rgba(0,0,0,.5);
+
+    backdrop-filter:blur(15px);
+}
+
+body.light .about-card{
+    background:rgba(255,255,255,.7);
+}
+
+.about-card strong{
+    font-size:25px;
+}
+
+.about-card span{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.about-list{
+    margin-top:25px;
+}
+
+.about-list li{
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.check{
+    color:#22c55e;
+    font-weight:bold;
+}
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio{
+    background:var(--bg2);
+}
+
+.filters{
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+}
+
+.filter{
+    padding:9px 17px;
+
+    border-radius:100px;
+
+    border:1px solid var(--border);
+
+    color:var(--muted);
+
+    background:transparent;
+}
+
+.filter.active,
+.filter:hover{
+    color:white;
+
+    border-color:var(--accent);
+
+    background:var(--accent);
+}
+
+.portfolio-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.project{
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:var(--card);
+
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+
+    box-shadow:var(--shadow);
+}
+
+.project-image{
+    height:220px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    overflow:hidden;
+}
+
+.project:nth-child(1) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #312e81,
+        #7c3aed
+    );
+}
+
+.project:nth-child(2) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #064e3b,
+        #06b6d4
+    );
+}
+
+.project:nth-child(3) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #581c87,
+        #db2777
+    );
+}
+
+.project:nth-child(4) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #172554,
+        #2563eb
+    );
+}
+
+.project:nth-child(5) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #422006,
+        #f59e0b
+    );
+}
+
+.project:nth-child(6) .project-image{
+    background:
+    linear-gradient(
+        135deg,
+        #022c22,
+        #10b981
+    );
+}
+
+.project-number{
+    font-size:80px;
+
+    font-weight:800;
+
+    opacity:.12;
+}
+
+.project-info{
+    padding:22px;
+}
+
+.project-info h3{
+    margin-bottom:5px;
+}
+
+.project-info p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.project-tags{
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-top:15px;
+}
+
+.project-tags span{
+    font-size:11px;
+
+    padding:5px 9px;
+
+    border-radius:7px;
+
+    background:var(--card2);
+
+    color:var(--muted);
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+}
+
+.process-card{
+    padding:25px;
+
+    border-left:1px solid var(--border);
+}
+
+.process-number{
+    font-size:13px;
+
+    color:#a78bfa;
+
+    margin-bottom:30px;
+}
+
+.process-card h3{
+    margin-bottom:10px;
+}
+
+.process-card p{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonial-box{
+    max-width:850px;
+
+    margin:auto;
+
+    padding:50px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    background:var(--card);
+
+    box-shadow:var(--shadow);
+}
+
+.stars{
+    color:#fbbf24;
+
+    font-size:20px;
+
+    margin-bottom:20px;
+}
+
+.quote{
+    font-size:22px;
+
+    line-height:1.6;
+
+    color:var(--text);
+}
+
+.client{
+    margin-top:25px;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.testimonial-buttons{
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    background:var(--bg2);
+}
+
+.faq-list{
+    max-width:800px;
+
+    margin:auto;
+}
+
+.faq-item{
+    border-bottom:1px solid var(--border);
+}
+
+.faq-question{
+    width:100%;
+
+    padding:22px 0;
+
+    border:0;
+
+    background:none;
+
+    color:var(--text);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    text-align:left;
+
+    font-size:16px;
+
+    font-weight:600;
+}
+
+.faq-answer{
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    color:var(--muted);
+
+    font-size:14px;
+}
+
+.faq-item.active .faq-answer{
+    max-height:150px;
+
+    padding-bottom:20px;
+}
+
+.faq-icon{
+    transition:.3s;
+
+    font-size:20px;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+    .9fr 1.1fr;
+
+    gap:60px;
+
+    align-items:start;
+}
+
+.contact-info p{
+    color:var(--muted);
+
+    margin:18px 0 25px;
+
+    max-width:430px;
+}
+
+.contact-details{
+    display:grid;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.contact-detail{
+    padding:16px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:var(--card);
+}
+
+.contact-detail small{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-bottom:3px;
+}
+
+.contact-detail strong{
+    font-size:14px;
+}
+
+.contact-form{
+    padding:30px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:var(--card);
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    color:var(--muted);
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+
+    padding:14px 15px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:var(--bg2);
+
+    color:var(--text);
+
+    transition:.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:var(--accent);
+
+    box-shadow:
+    0 0 0 3px rgba(124,58,237,.1);
+}
+
+.form-group textarea{
+    min-height:130px;
+
+    resize:vertical;
+}
+
+.form-message{
+    margin-top:15px;
+
+    color:#22c55e;
+
+    font-size:13px;
+
+    display:none;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    border-top:1px solid var(--border);
+
+    padding:70px 0 25px;
+
+    background:var(--bg2);
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+    padding-bottom:50px;
+}
+
+.footer-about p{
+    color:var(--muted);
+
+    max-width:300px;
+
+    margin-top:15px;
+
+    font-size:13px;
+}
+
+.footer-col h4{
+    font-size:14px;
+
+    margin-bottom:18px;
+}
+
+.footer-col a{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:11px;
+
+    transition:.2s;
+}
+
+.footer-col a:hover{
+    color:var(--text);
+
+    transform:translateX(3px);
+}
+
+.footer-bottom{
+    border-top:1px solid var(--border);
+
+    padding-top:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.socials{
+    display:flex;
+
+    gap:8px;
+}
+
+.social{
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    display:grid;
+
+    place-items:center;
+
+    transition:.2s;
+}
+
+.social:hover{
+    border-color:var(--accent);
+
+    color:#a78bfa;
+
+    transform:translateY(-3px);
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#25d366;
+
+    color:white;
+
+    font-size:25px;
+
+    box-shadow:0 10px 30px rgba(37,211,102,.3);
+
+    z-index:900;
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.08);
+}
+
+/* =========================================================
+   BACK TOP
+========================================================= */
+
+.back-top{
+    position:fixed;
+
+    right:25px;
+    bottom:95px;
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    border:1px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    display:grid;
+
+    place-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:900;
+}
+
+.back-top.show{
+    opacity:1;
+
+    visibility:visible;
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:950px){
+
+    .nav-links,
+    .nav-actions .btn{
+        display:none;
+    }
+
+    .menu-btn{
+        display:grid;
+    }
+
+    .services-grid,
+    .portfolio-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .process-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-stats{
+        gap:30px;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .testimonial-box{
+        padding:30px 20px;
+    }
+
+    .quote{
+        font-size:18px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .about-image{
+        min-height:330px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header id="header">
+
+<div class="container navbar">
+
+<a href="#home" class="logo">
+<span class="logo-icon">N</span>
+Nexora
+</a>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="nav-actions">
+
+<button class="icon-btn" id="themeBtn" aria-label="Change theme">
+☼
+</button>
+
+<a href="#contact" class="btn btn-primary">
+Start Project
+</a>
+
+<button class="icon-btn menu-btn" id="menuBtn">
+☰
+</button>
+
+</div>
+
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+
+<div class="container">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="badge reveal">
+<span></span>
+Available for new projects
+</div>
+
+<h1 class="reveal">
+We Build
+<span class="gradient-text">
+Digital Experiences
+</span>
+That Matter.
+</h1>
+
+<p class="reveal">
+Nexora is a modern digital product agency helping ambitious
+businesses turn ideas into beautiful, fast and powerful digital
+experiences.
+</p>
+
+<div class="hero-buttons reveal">
+
+<a href="#work" class="btn btn-primary">
+Explore Our Work →
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Let's Talk
+</a>
+
+</div>
+
+<div class="hero-stats reveal">
+
+<div class="stat">
+<h3>50+</h3>
+<p>Projects Delivered</p>
+</div>
+
+<div class="stat">
+<h3>30+</h3>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat">
+<h3>4.9/5</h3>
+<p>Client Rating</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="services" id="services">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-label">
+What We Do
+</div>
+
+<h2 class="section-title">
+Everything you need to build a strong digital presence.
+</h2>
+
+<p class="section-description">
+From strategy to development, we handle the complete digital
+product journey.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card reveal">
+
+<div class="service-icon">✦</div>
+
+<h3>Brand & Design</h3>
+
+<p>
+We create memorable visual identities, UI designs and
+experiences that make your brand stand out.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">⌘</div>
+
+<h3>Web Development</h3>
+
+<p>
+Fast, responsive and modern websites built with clean
+technology and user-friendly experiences.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">↗</div>
+
+<h3>Growth & Strategy</h3>
+
+<p>
+Data-driven digital strategies designed to increase reach,
+engagement and business growth.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">◎</div>
+
+<h3>Mobile Apps</h3>
+
+<p>
+Beautiful mobile applications designed for modern users
+across Android and iOS platforms.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">⚡</div>
+
+<h3>Performance</h3>
+
+<p>
+We optimize digital products for speed, accessibility,
+SEO and better overall performance.
+</p>
+
+</div>
+
+
+<div class="service-card reveal">
+
+<div class="service-icon">◇</div>
+
+<h3>Consulting</h3>
+
+<p>
+Clear technical and product guidance to help you make
+smarter digital decisions.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+<div class="container about-grid">
+
+<div class="about-image reveal">
+
+<div class="about-card">
+
+<strong>5+ Years</strong>
+
+<span>Digital Experience</span>
+
+</div>
+
+</div>
+
+
+<div class="reveal">
+
+<div class="section-label">
+Why Nexora
+</div>
+
+<h2 class="section-title">
+We don't just build websites. We build digital products.
+</h2>
+
+<p class="section-description">
+Our approach combines creative design, modern technology
+and business thinking to create products that people
+actually enjoy using.
+</p>
+
+<ul class="about-list">
+
+<li>
+<span class="check">✓</span>
+User-focused design
+</li>
+
+<li>
+<span class="check">✓</span>
+Clean and scalable development
+</li>
+
+<li>
+<span class="check">✓</span>
+Responsive on every device
+</li>
+
+<li>
+<span class="check">✓</span>
+SEO and performance focused
+</li>
+
+<li>
+<span class="check">✓</span>
+Long-term support
+</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-primary">
+Work With Us →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PORTFOLIO
+========================================================= -->
+
+<section class="portfolio" id="work">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-label">
+Selected Work
+</div>
+
+<h2 class="section-title">
+Some things we've built.
+</h2>
+
+<p class="section-description">
+A few examples of digital products, websites and experiences.
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+All
+</button>
+
+<button class="filter" data-filter="web">
+Web
+</button>
+
+<button class="filter" data-filter="app">
+Apps
+</button>
+
+<button class="filter" data-filter="brand">
+Branding
+</button>
+
+</div>
+
+
+<div class="portfolio-grid">
+
+
+<div class="project reveal" data-category="web">
+
+<div class="project-image">
+
+<div class="project-number">
+01
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>Nova Finance</h3>
+
+<p>
+Modern financial dashboard for growing businesses.
+</p>
+
+<div class="project-tags">
+
+<span>UI/UX</span>
+<span>Web</span>
+<span>Dashboard</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project reveal" data-category="app">
+
+<div class="project-image">
+
+<div class="project-number">
+02
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>Flow App</h3>
+
+<p>
+Productivity mobile application for modern teams.
+</p>
+
+<div class="project-tags">
+
+<span>Mobile</span>
+<span>Flutter</span>
+<span>UX</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project reveal" data-category="brand">
+
+<div class="project-image">
+
+<div class="project-number">
+03
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>Velora</h3>
+
+<p>
+Complete identity system for a modern lifestyle brand.
+</p>
+
+<div class="project-tags">
+
+<span>Branding</span>
+<span>Identity</span>
+<span>Strategy</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project reveal" data-category="web">
+
+<div class="project-image">
+
+<div class="project-number">
+04
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>Orbit SaaS</h3>
+
+<p>
+High-converting SaaS website for a technology startup.
+</p>
+
+<div class="project-tags">
+
+<span>SaaS</span>
+<span>Web</span>
+<span>Development</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project reveal" data-category="brand">
+
+<div class="project-image">
+
+<div class="project-number">
+05
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>Monarch</h3>
+
+<p>
+Premium visual identity and digital experience.
+</p>
+
+<div class="project-tags">
+
+<span>Brand</span>
+<span>Design</span>
+<span>Creative</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project reveal" data-category="app">
+
+<div class="project-image">
+
+<div class="project-number">
+06
+</div>
+
+</div>
+
+<div class="project-info">
+
+<h3>GreenGo</h3>
+
+<p>
+Smart mobile platform focused on sustainable living.
+</p>
+
+<div class="project-tags">
+
+<span>App</span>
+<span>Mobile</span>
+<span>Product</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-label">
+Our Process
+</div>
+
+<h2 class="section-title">
+Simple process. Serious results.
+</h2>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="process-card reveal">
+
+<div class="process-number">
+01 / DISCOVER
+</div>
+
+<h3>Understand</h3>
+
+<p>
+We learn about your business, users, goals and challenges.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+02 / DESIGN
+</div>
+
+<h3>Create</h3>
+
+<p>
+We transform ideas into clear strategies, wireframes and
+beautiful designs.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+03 / BUILD
+</div>
+
+<h3>Develop</h3>
+
+<p>
+Our developers turn approved designs into fast,
+responsive digital products.
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+04 / GROW
+</div>
+
+<h3>Improve</h3>
+
+<p>
+After launch, we analyze results and continuously improve
+the product.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIAL
+========================================================= -->
+
+<section class="services" id="reviews">
+
+<div class="container">
+
+<div class="section-head reveal"
+style="text-align:center;">
+
+<div class="section-label">
+Client Reviews
+</div>
+
+<h2 class="section-title" style="margin:auto;">
+What our clients say.
+</h2>
+
+</div>
+
+
+<div class="testimonial-box reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="quote" id="quote">
+“Nexora transformed our idea into a product that our customers
+actually love using. The entire process was smooth and professional.”
+</div>
+
+<div class="client" id="client">
+Sarah Khan — Founder, Nova
+</div>
+
+
+<div class="testimonial-buttons">
+
+<button class="icon-btn" id="prev">
+←
+</button>
+
+<button class="icon-btn" id="next">
+→
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="faq" id="faq">
+
+<div class="container">
+
+<div class="section-head reveal"
+style="text-align:center;">
+
+<div class="section-label">
+FAQ
+</div>
+
+<h2 class="section-title" style="margin:auto;">
+Frequently asked questions.
+</h2>
+
+</div>
+
+
+<div class="faq-list">
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+How long does a website take?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+A typical website can take around 2–6 weeks depending
+on its size, content and features.
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+Do you build mobile applications?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Yes. We can design and develop modern mobile applications
+for Android and iOS.
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+Can you redesign an existing website?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Yes. We can improve the design, performance, responsiveness
+and overall user experience of an existing website.
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+Do you provide support after launch?
+
+<span class="faq-icon">+</span>
+
+</button>
+
+<div class="faq-answer">
+
+Yes. We can provide maintenance, updates, improvements
+and technical support after launch.
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+<div class="container contact-grid">
+
+
+<div class="contact-info reveal">
+
+<div class="section-label">
+Let's Work Together
+</div>
+
+<h2 class="section-title">
+Have an idea?
+Let's build it.
+</h2>
+
+<p>
+Tell us what you're planning. Whether you need a website,
+mobile application, brand identity or digital strategy,
+we'd love to hear about it.
+</p>
+
+<a
+class="btn btn-primary"
+href="https://wa.me/923000000000"
+target="_blank">
+
+Chat on WhatsApp →
+
+</a>
+
+
+<div class="contact-details">
+
+<div class="contact-detail">
+
+<small>Email</small>
+
+<strong>hello@nexora.com</strong>
+
+</div>
+
+<div class="contact-detail">
+
+<small>Location</small>
+
+<strong>Pakistan · Working Worldwide</strong>
+
+</div>
+
+<div class="contact-detail">
+
+<small>Response Time</small>
+
+<strong>Usually within 24 hours</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<form class="contact-form reveal" id="contactForm">
+
+<div class="form-group">
+
+<label for="name">
+Your Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="email">
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="you@example.com"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="subject">
+Project Type
+</label>
+
+<input
+type="text"
+id="subject"
+placeholder="Website, App, Branding..."
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="message">
+Message
+</label>
+
+<textarea
+id="message"
+placeholder="Tell us about your project..."
+required></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Send Message →
+</button>
+
+
+<div
+class="form-message"
+id="formMessage">
+
+✓ Message submitted successfully!
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-about">
+
+<a href="#home" class="logo">
+
+<span class="logo-icon">
+N
+</span>
+
+Nexora
+
+</a>
+
+<p>
+A digital product agency helping ambitious brands
+design, build and grow better digital experiences.
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Company</h4>
+
+<a href="#about">About</a>
+<a href="#work">Our Work</a>
+<a href="#process">Process</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Services</h4>
+
+<a href="#services">Web Development</a>
+<a href="#services">Mobile Apps</a>
+<a href="#services">Brand Design</a>
+<a href="#services">Consulting</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Explore</h4>
+
+<a href="#reviews">Reviews</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Start Project</a>
+<a href="#home">Back Home</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+© <span id="year"></span> Nexora. All rights reserved.
+</p>
+
+
+<div class="socials">
+
+<a
+class="social"
+href="https://www.linkedin.com/"
+target="_blank"
+aria-label="LinkedIn">
+
+in
+
+</a>
+
+<a
+class="social"
+href="https://www.instagram.com/"
+target="_blank"
+aria-label="Instagram">
+
+ig
+
+</a>
+
+<a
+class="social"
+href="https://www.youtube.com/"
+target="_blank"
+aria-label="YouTube">
+
+▶
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/923000000000"
+target="_blank"
+class="whatsapp"
+aria-label="WhatsApp">
+
+☏
+
+</a>
+
+
+<!-- BACK TO TOP -->
+
+<button
+class="back-top"
+id="backTop">
+
+↑
+
+</button>
+
+
+<script>
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const header =
+document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 40){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click",()=>{
+
+mobileMenu.classList.toggle("open");
+
+});
+
+document.querySelectorAll(".mobile-menu a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+mobileMenu.classList.remove("open");
+
+});
+
+});
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click",()=>{
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+themeBtn.textContent="☾";
+
+}else{
+
+themeBtn.textContent="☼";
+
+}
+
+});
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+
+observer.observe(element);
+
+});
+
+
+/* =========================================================
+   PORTFOLIO FILTER
+========================================================= */
+
+const filters =
+document.querySelectorAll(".filter");
+
+const projects =
+document.querySelectorAll(".project");
+
+filters.forEach(filter=>{
+
+filter.addEventListener("click",()=>{
+
+filters.forEach(item =>
+item.classList.remove("active"));
+
+filter.classList.add("active");
+
+const category =
+filter.dataset.filter;
+
+projects.forEach(project=>{
+
+if(
+category === "all" ||
+project.dataset.category === category
+){
+
+project.style.display="block";
+
+}else{
+
+project.style.display="none";
+
+}
+
+});
+
+});
+
+});
+
+
+/* =========================================================
+   TESTIMONIAL SLIDER
+========================================================= */
+
+const testimonials=[
+
+{
+quote:
+"Nexora transformed our idea into a product that our customers actually love using. The entire process was smooth and professional.",
+client:
+"Sarah Khan — Founder, Nova"
+},
+
+{
+quote:
+"The team understood our requirements quickly and delivered a beautiful website that performs incredibly well.",
+client:
+"Ahmed Raza — CEO, Orbit"
+},
+
+{
+quote:
+"From branding to development, Nexora made the whole process simple. Highly recommended for modern digital products.",
+client:
+"Maria Ali — Founder, Velora"
+}
+
+];
+
+let current=0;
+
+const quote =
+document.getElementById("quote");
+
+const client =
+document.getElementById("client");
+
+function showTestimonial(){
+
+quote.textContent =
+"“"+testimonials[current].quote+"”";
+
+client.textContent =
+testimonials[current].client;
+
+}
+
+document.getElementById("next")
+.addEventListener("click",()=>{
+
+current++;
+
+if(current >= testimonials.length){
+
+current=0;
+
+}
+
+showTestimonial();
+
+});
+
+
+document.getElementById("prev")
+.addEventListener("click",()=>{
+
+current--;
+
+if(current < 0){
+
+current=testimonials.length-1;
+
+}
+
+showTestimonial();
+
+});
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-question")
+.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const item =
+button.parentElement;
+
+document.querySelectorAll(".faq-item")
+.forEach(other=>{
+
+if(other !== item){
+
+other.classList.remove("active");
+
+}
+
+});
+
+item.classList.toggle("active");
+
+});
+
+});
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+document.getElementById("contactForm");
+
+const formMessage =
+document.getElementById("formMessage");
+
+contactForm.addEventListener("submit",(event)=>{
+
+event.preventDefault();
+
+formMessage.style.display="block";
+
+contactForm.reset();
+
+setTimeout(()=>{
+
+formMessage.style.display="none";
+
+},5000);
+
+});
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+document.getElementById("backTop");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 500){
+
+backTop.classList.add("show");
+
+}else{
+
+backTop.classList.remove("show");
+
+}
+
+});
+
+
+backTop.addEventListener("click",()=>{
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
+
+});
+
+});
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* =========================================================
+   START TESTIMONIAL
+========================================================= */
+
+showTestimonial();
+
+</script>
+
+</body>
+</html>
